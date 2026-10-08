@@ -1,0 +1,1492 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8f5">
+  <meta name="description" content="Janelle Rubas Esmino — IT student majoring in Network Design and Management.">
+  <title>Janelle Esmino | Personal Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root {
+      --cream: #fffaf6;
+      --pink: #f3dfe5;
+      --rose: #b76e86;
+      --rose-dark: #97546d;
+      --plum: #65516f;
+      --lavender: #eee7f4;
+      --ink: #40343e;
+      --muted: #796a75;
+      --line: #eadde2;
+      --white: rgba(255,255,255,.76);
+      --shadow: 0 18px 55px rgba(104,69,88,.09);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.75;
+      background:
+        radial-gradient(ellipse at 8% 12%, #f4e1e8 0, transparent 32%),
+        radial-gradient(ellipse at 95% 38%, #eee6f5 0, transparent 34%),
+        var(--cream);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { display: block; max-width: 100%; }
+
+    ::selection {
+      background: var(--pink);
+      color: var(--ink);
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--plum);
+      outline-offset: 5px;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* Floating flower background */
+
+    .flower-field {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .flower {
+      position: absolute;
+      bottom: -45px;
+      left: var(--x);
+      color: var(--color);
+      font-size: var(--size);
+      opacity: 0;
+      animation: floatFlower var(--duration) linear var(--delay) infinite;
+    }
+
+    @keyframes floatFlower {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      12% { opacity: var(--opacity); }
+      50% {
+        transform: translateY(-55vh) translateX(35px) rotate(160deg);
+      }
+      88% { opacity: var(--opacity); }
+      100% {
+        transform: translateY(-115vh) translateX(-20px) rotate(340deg);
+        opacity: 0;
+      }
+    }
+
+    body > *:not(.flower-field) {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,250,246,.88);
+      border-bottom: 1px solid rgba(234,221,226,.85);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      min-height: 82px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font: 700 1.35rem "Manrope", sans-serif;
+      letter-spacing: -.07em;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--rose); }
+
+    .brand small {
+      display: block;
+      font: 500 .59rem "DM Sans", sans-serif;
+      letter-spacing: .13em;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 21px;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 12px 0;
+      color: var(--muted);
+      font-size: .8rem;
+      transition: color .25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--rose-dark); }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--rose);
+      transition: width .25s;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      color: var(--plum);
+      background: white;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 100px 0;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .eyebrow {
+      margin-bottom: 12px;
+      color: var(--rose-dark);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+
+    .hello {
+      color: var(--plum);
+      font: italic 1.65rem "Playfair Display", serif;
+    }
+
+    .hero h1 {
+      margin: 15px 0 23px;
+      font: 700 clamp(3rem, 6.3vw, 5rem)/1.08 "Manrope", sans-serif;
+      letter-spacing: -.075em;
+    }
+
+    .hero h1 span {
+      color: var(--rose-dark);
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: -.055em;
+    }
+
+    .role {
+      margin-bottom: 20px;
+      color: var(--plum);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+    }
+
+    .hero-description {
+      max-width: 500px;
+      color: var(--muted);
+      font-size: .98rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 29px;
+    }
+
+    .btn {
+      min-height: 48px;
+      padding: 12px 21px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      font-size: .84rem;
+      font-weight: 600;
+      transition: transform .25s, box-shadow .25s, background .25s;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+
+    .btn-primary {
+      color: white;
+      background: var(--plum);
+      box-shadow: 0 8px 22px #65516f26;
+    }
+
+    .btn-primary:hover { background: #51405b; }
+
+    .btn-secondary {
+      color: var(--plum);
+      background: rgba(255,255,255,.6);
+      border-color: #d9c2cd;
+    }
+
+    .btn-secondary:hover { background: white; }
+
+    .hero-note {
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: .79rem;
+    }
+
+    .hero-note i { color: var(--rose); }
+
+    /* Portrait and network decoration */
+
+    .profile-shell {
+      width: 100%;
+      max-width: 365px;
+      margin: auto;
+      position: relative;
+      padding: 18px 12px 0;
+    }
+
+    .profile-card {
+      position: relative;
+      z-index: 2;
+      padding: 19px 19px 24px;
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 23px;
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 25px 70px rgba(104,69,88,.15);
+      transform: rotate(2deg);
+      transition: transform .4s;
+    }
+
+    .profile-card:hover { transform: rotate(0) translateY(-5px); }
+
+    .photo-frame {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #f0d7e1, #e8dff0);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .photo-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      text-align: center;
+      color: var(--plum);
+    }
+
+    .photo-fallback strong {
+      font: 4rem "Playfair Display", serif;
+    }
+
+    .photo-fallback span { font-size: .8rem; }
+
+    .profile-caption {
+      padding-top: 18px;
+      text-align: center;
+    }
+
+    .profile-caption strong { font: 600 1rem "Manrope", sans-serif; }
+
+    .profile-caption p {
+      color: var(--muted);
+      font: italic 1rem "Playfair Display", serif;
+    }
+
+    .sticker {
+      position: absolute;
+      bottom: 82px;
+      left: -23px;
+      padding: 7px 13px;
+      color: var(--plum);
+      background: #eee5f4;
+      border: 1px solid #d7c7e0;
+      border-radius: 8px;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      transform: rotate(-8deg);
+    }
+
+    .decor-flower {
+      position: absolute;
+      top: -22px;
+      right: -9px;
+      color: var(--rose);
+      font-size: 2rem;
+      z-index: 3;
+    }
+
+    .network-art {
+      position: absolute;
+      inset: -25px -35px -30px;
+      z-index: 1;
+      width: calc(100% + 70px);
+      height: calc(100% + 55px);
+      opacity: .42;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .network-art svg { width: 100%; height: 100%; }
+
+    .network-art line {
+      stroke: #b76e86;
+      stroke-width: 1.2;
+      stroke-dasharray: 5 7;
+      animation: networkFlow 9s linear infinite;
+    }
+
+    .network-art circle {
+      fill: #d6a0b2;
+      stroke: #fffaf6;
+      stroke-width: 2;
+      animation: networkPulse 3s ease-in-out infinite alternate;
+    }
+
+    .network-art circle:nth-of-type(even) { animation-delay: -1.5s; }
+
+    @keyframes networkFlow {
+      to { stroke-dashoffset: -48; }
+    }
+
+    @keyframes networkPulse {
+      from { transform: scale(.85); }
+      to { transform: scale(1.2); }
+    }
+
+    /* Shared section styles */
+
+    .section {
+      padding: 85px 0;
+      scroll-margin-top: 70px;
+    }
+
+    .section-heading { margin-bottom: 35px; }
+
+    .section-heading h2 {
+      font: 700 clamp(2rem, 4vw, 2.8rem)/1.2 "Manrope", sans-serif;
+      letter-spacing: -.065em;
+    }
+
+    .section-heading h2 span { color: var(--rose-dark); }
+
+    .section-subtitle {
+      display: inline-block;
+      margin-top: 9px;
+      color: var(--rose-dark);
+      font: italic 1.13rem "Playfair Display", serif;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(234,221,226,.9);
+      border-radius: 21px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #dfbdcb;
+      box-shadow: 0 25px 60px rgba(104,69,88,.13);
+    }
+
+    .about-card {
+      padding: 35px;
+      background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(249,237,242,.82));
+    }
+
+    .about-card h3,
+    .card h3 {
+      margin-bottom: 13px;
+      font: 700 1.15rem "Manrope", sans-serif;
+      letter-spacing: -.025em;
+    }
+
+    .about-card p,
+    .card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .about-card p + p { margin-top: 15px; }
+
+    .personal-note {
+      margin-top: 23px;
+      color: var(--rose-dark);
+      font: italic 1.12rem "Playfair Display", serif;
+    }
+
+    .details-card { padding: 20px 28px; }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 105px 1fr;
+      gap: 12px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: .85rem;
+    }
+
+    .detail-row:last-child { border-bottom: 0; }
+    .detail-row dt { color: var(--muted); }
+    .detail-row dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+
+    .school { color: var(--plum); }
+
+    /* Education timeline */
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 20px;
+      padding-left: 27px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 28px;
+      bottom: 28px;
+      width: 1px;
+      background: #d7bfd0;
+    }
+
+    .education-card {
+      padding: 25px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .education-card::before {
+      content: "";
+      position: absolute;
+      top: 31px;
+      left: -28px;
+      width: 12px;
+      height: 12px;
+      border: 3px solid var(--cream);
+      border-radius: 50%;
+      background: var(--rose);
+      box-shadow: 0 0 0 1px #d7bfd0;
+    }
+
+    .icon-box,
+    .network-icon {
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid #e7d5e0;
+      border-radius: 14px;
+      color: var(--plum);
+      background: linear-gradient(145deg, #fffdfb, #eee7f4);
+      font-size: 1.15rem;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .icon-box { margin-bottom: 18px; }
+
+    .education-card .icon-box { margin: 0; }
+    .education-card .eyebrow { margin-bottom: 6px; }
+    .education-card h3 { margin: 0; }
+    .education-card p { margin-top: 7px; }
+
+    /* Network major section */
+
+    .topology-card {
+      padding: 27px;
+      background:
+        radial-gradient(circle at 90% 10%, #eee7f4, transparent 45%),
+        rgba(255,255,255,.82);
+    }
+
+    .topology {
+      width: 100%;
+      height: auto;
+      margin: 15px auto 5px;
+      overflow: visible;
+    }
+
+    .topology .connection {
+      fill: none;
+      stroke: #c18ba1;
+      stroke-width: 1.8;
+      stroke-dasharray: 5 5;
+      animation: networkFlow 8s linear infinite;
+    }
+
+    .topology .node {
+      fill: #fffaf6;
+      stroke: #c18ba1;
+      stroke-width: 1.5;
+    }
+
+    .topology .core {
+      fill: #eee5f4;
+      stroke: #a78bb7;
+    }
+
+    .topology text {
+      fill: #65516f;
+      font-family: "DM Sans", sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .tech-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 10px;
+      border: 1px solid #e7d5e0;
+      border-radius: 9px;
+      color: #80678c;
+      background: rgba(255,255,255,.65);
+      font-size: .68rem;
+      font-weight: 600;
+    }
+
+    .tech-label i { color: #b76e86; }
+
+    /* Project cards */
+
+    .project-preview {
+      height: 185px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: linear-gradient(140deg, #f4dfe6, #e9e0f1);
+    }
+
+    .project-preview.purple { background: linear-gradient(140deg, #eee7f5, #dcd0e7); }
+    .project-preview.peach { background: linear-gradient(140deg, #f5e9df, #edd8e2); }
+
+    .mini-browser {
+      width: 76%;
+      padding: 13px;
+      border: 1px solid white;
+      border-radius: 11px;
+      background: rgba(255,255,255,.8);
+      box-shadow: 0 12px 28px #65516f17;
+      transform: rotate(-3deg);
+      transition: transform .35s;
+    }
+
+    .project-card:hover .mini-browser { transform: rotate(0) scale(1.04); }
+
+    .dots {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+
+    .dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d2a4b6;
+    }
+
+    .browser-content {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 10px;
+    }
+
+    .browser-photo {
+      min-height: 66px;
+      border-radius: 6px;
+      background: linear-gradient(150deg, #d6b7ca, #e9d9e8);
+    }
+
+    .browser-lines span {
+      display: block;
+      height: 5px;
+      margin: 7px 0;
+      border-radius: 5px;
+      background: #e7dce6;
+    }
+
+    .browser-lines span:first-child { width: 70%; background: #b38aaa; }
+
+    .database-art {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: #80678c;
+      font-size: 3rem;
+    }
+
+    .data-lines { display: grid; gap: 9px; }
+    .data-lines span { width: 68px; height: 6px; border-radius: 8px; background: #b5a4c0; }
+
+    .design-art { display: flex; align-items: center; gap: 11px; transform: rotate(-5deg); }
+
+    .swatch {
+      width: 45px;
+      height: 80px;
+      border-radius: 24px 24px 8px 8px;
+      background: #c08a9b;
+    }
+
+    .swatch:nth-child(2) { height: 103px; background: #b39abd; }
+    .swatch:nth-child(3) { background: #e2cbb8; }
+
+    .project-body { padding: 25px; }
+
+    .sample-label {
+      margin-bottom: 8px;
+      color: var(--rose-dark);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+    }
+
+    .project-body p { margin: 12px 0 18px; font-size: .85rem; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    .tag {
+      padding: 5px 10px;
+      border: 1px solid #e7d5e0;
+      border-radius: 8px;
+      color: var(--plum);
+      background: #fcf7fb;
+      font-size: .69rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 22px;
+      color: var(--plum);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .project-link i { transition: transform .25s; }
+    .project-link:hover i { transform: translateX(4px); }
+
+    .disclaimer {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    /* Skills */
+
+    .skill-card { padding: 29px; }
+    .skill-card h3 { margin-bottom: 10px; }
+    .skill-card p { margin-bottom: 20px; }
+    .skill-card .tag { padding: 6px 11px; font-size: .75rem; }
+
+    /* Contact */
+
+    .contact-panel {
+      padding: clamp(28px, 5vw, 55px);
+      border: 1px solid #ead9e1;
+      border-radius: 27px;
+      background:
+        radial-gradient(ellipse at 100% 0, #eee4f4 0, transparent 40%),
+        linear-gradient(125deg, #fffdfb, #f8eaf0);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-heading { max-width: 590px; }
+
+    .contact-heading p {
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid #e5d2dc;
+      border-radius: 15px;
+      background: rgba(255,255,255,.72);
+      transition: transform .25s, background .25s;
+    }
+
+    .contact-link:hover { transform: translateY(-4px); background: white; }
+    .contact-link i { color: var(--plum); font-size: 1.35rem; }
+    .contact-link strong { display: block; font-size: .84rem; }
+    .contact-link small { display: block; color: var(--muted); font-size: .68rem; overflow-wrap: anywhere; }
+    .contact-link[aria-disabled="true"] { cursor: default; }
+    .contact-note { margin-top: 18px; color: var(--muted); font-size: .76rem; }
+
+    /* Footer */
+
+    footer { padding: 30px 0; border-top: 1px solid var(--line); }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-inner strong { font: 700 1rem "Manrope", sans-serif; }
+    .footer-inner p { color: var(--muted); font-size: .75rem; }
+    .footer-copy { text-align: right; }
+
+    /* Scroll reveal */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: .72rem; }
+      .hero-grid { gap: 35px; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 > :last-child { grid-column: 1 / -1; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .wrap { width: calc(100% - 34px); }
+      .nav-inner { min-height: 72px; }
+
+      .menu-toggle { display: grid; place-items: center; }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 22px 22px;
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 15px 25px #65516f10;
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; font-size: .9rem; }
+
+      .hero { padding: 65px 0 70px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 55px; }
+      .hero h1 { font-size: clamp(3rem, 12vw, 4.2rem); }
+      .profile-shell { max-width: 320px; }
+
+      .section { padding: 62px 0; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .grid-3 > :last-child { grid-column: auto; }
+      .about-card { padding: 28px; }
+      .details-card { padding: 12px 22px; }
+      .education-card { padding: 22px 18px; gap: 14px; }
+      .contact-panel { padding: 27px 21px; }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-copy { text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .flower-field { display: none; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Animated pink flower background -->
+  <div class="flower-field" aria-hidden="true">
+    <span class="flower" style="--x:5%;--size:15px;--duration:19s;--delay:-4s;--opacity:.38;--color:#d99aaa">✿</span>
+    <span class="flower" style="--x:13%;--size:10px;--duration:24s;--delay:-13s;--opacity:.28;--color:#e2a8b6">✽</span>
+    <span class="flower" style="--x:22%;--size:17px;--duration:21s;--delay:-8s;--opacity:.32;--color:#c98599">✿</span>
+    <span class="flower" style="--x:31%;--size:11px;--duration:26s;--delay:-17s;--opacity:.25;--color:#e4aeba">✽</span>
+    <span class="flower" style="--x:40%;--size:14px;--duration:20s;--delay:-11s;--opacity:.34;--color:#d494a6">✿</span>
+    <span class="flower" style="--x:49%;--size:9px;--duration:25s;--delay:-3s;--opacity:.26;--color:#e3a7b5">✽</span>
+    <span class="flower" style="--x:58%;--size:16px;--duration:22s;--delay:-16s;--opacity:.3;--color:#cc879a">✿</span>
+    <span class="flower" style="--x:67%;--size:10px;--duration:27s;--delay:-7s;--opacity:.24;--color:#dfa2b1">✽</span>
+    <span class="flower" style="--x:76%;--size:15px;--duration:20s;--delay:-14s;--opacity:.33;--color:#ce899c">✿</span>
+    <span class="flower" style="--x:85%;--size:9px;--duration:24s;--delay:-2s;--opacity:.25;--color:#e1a5b3">✽</span>
+    <span class="flower" style="--x:94%;--size:14px;--duration:23s;--delay:-19s;--opacity:.3;--color:#d795a5">✿</span>
+  </div>
+
+  <header class="topbar">
+    <nav class="wrap nav-inner" aria-label="Main navigation">
+      <a href="#home" class="brand">
+        janelle<span>.</span>
+        <small>IT STUDENT • CREATIVE EXPLORER</small>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#information">About</a>
+        <a href="#education">Education</a>
+        <a href="#networking">My Major</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <p class="hello">Hello, I'm Janelle.</p>
+          <h1>I like to build things and <span>understand how they work.</span></h1>
+
+          <p class="role">IT STUDENT &nbsp;•&nbsp; NETWORK DESIGN &amp; MANAGEMENT &nbsp;•&nbsp; CREATIVE THINKER</p>
+
+          <p class="hero-description">
+            I'm an Information Technology student majoring in Network Design
+            and Management, with an interest in how computers communicate,
+            how networks are built, and how systems stay connected and secure.
+            I'm eager to learn about network infrastructure, IP addressing,
+            routing, switching, and network troubleshooting while developing
+            the technical skills needed to design, manage, and maintain
+            reliable networks. I believe every connection matters, and every
+            challenge is an opportunity to learn something new.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">Explore my work <i class="fa fa-arrow-right"></i></a>
+            <a class="btn btn-secondary" href="#contact"><i class="fa fa-envelope-o"></i> Say hello</a>
+          </div>
+
+          <p class="hero-note">
+            <i class="fa fa-graduation-cap"></i>
+            Nueva Vizcaya State University
+          </p>
+        </div>
+
+        <div class="profile-shell reveal">
+          <span class="decor-flower" aria-hidden="true">✿</span>
+
+          <div class="network-art" aria-hidden="true">
+            <svg viewBox="0 0 320 420" preserveAspectRatio="xMidYMid meet">
+              <line x1="30" y1="85" x2="145" y2="145"/>
+              <line x1="145" y1="145" x2="270" y2="80"/>
+              <line x1="145" y1="145" x2="65" y2="255"/>
+              <line x1="145" y1="145" x2="260" y2="260"/>
+              <line x1="65" y1="255" x2="160" y2="350"/>
+              <line x1="260" y1="260" x2="160" y2="350"/>
+              <line x1="30" y1="85" x2="65" y2="255"/>
+              <line x1="270" y1="80" x2="260" y2="260"/>
+              <circle cx="30" cy="85" r="7"/>
+              <circle cx="145" cy="145" r="10"/>
+              <circle cx="270" cy="80" r="7"/>
+              <circle cx="65" cy="255" r="8"/>
+              <circle cx="260" cy="260" r="8"/>
+              <circle cx="160" cy="350" r="9"/>
+            </svg>
+          </div>
+
+          <figure class="profile-card">
+            <div class="photo-frame">
+              <div class="photo-fallback" id="photo-fallback">
+                <strong>JE</strong>
+                <span>Profile photo</span>
+              </div>
+              <img
+                id="profile-photo"
+                src="me.png"
+                alt="Portrait of Janelle Rubas Esmino"
+                onload="document.getElementById('photo-fallback').hidden=true"
+                onerror="this.hidden=true"
+              >
+            </div>
+            <figcaption class="profile-caption">
+              <strong>Janelle Rubas Esmino</strong>
+              <p>Learning, creating, becoming.</p>
+            </figcaption>
+            <span class="sticker">A WORK IN PROGRESS ✧</span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="information" class="section">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow">01 / Beyond the screen</p>
+          <h2>A little <span>about me.</span></h2>
+          <span class="section-subtitle">The person behind the projects.</span>
+        </div>
+
+        <div class="grid-2">
+          <article class="card about-card reveal">
+            <h3>Curious by nature, connected by design.</h3>
+            <p>
+              I'm Janelle, an Information Technology student at Nueva Vizcaya
+              State University, majoring in Network Design and Management.
+              I'm interested in understanding how devices communicate,
+              how networks are structured, and how technology connects
+              people and systems.
+            </p>
+            <p>
+              I'm eager to deepen my knowledge of network infrastructure,
+              IP addressing, routing and switching, network configuration,
+              troubleshooting, and basic network security. I enjoy exploring
+              technical concepts, solving problems, and learning how reliable
+              networks support the digital world we depend on.
+            </p>
+            <p>
+              As I continue my journey, I want to develop the skills to design,
+              manage, and maintain efficient and secure network systems.
+              I know there's still a lot to learn, but I'm willing to be
+              patient, ask questions, and grow through every challenge
+              and experience.
+            </p>
+            <div class="personal-note">
+              "Every connection is a chance to learn, improve, and grow."
+            </div>
+          </article>
+
+          <div class="card details-card reveal">
+            <dl>
+              <div class="detail-row"><dt>Full name</dt><dd>Janelle Rubas Esmino</dd></div>
+              <div class="detail-row"><dt>Course</dt><dd>Information Technology</dd></div>
+              <div class="detail-row"><dt>Major</dt><dd>Network Design and Management</dd></div>
+              <div class="detail-row"><dt>University</dt><dd class="school">Nueva Vizcaya State University</dd></div>
+              <div class="detail-row"><dt>Birthday</dt><dd>September 21, 2006</dd></div>
+              <div class="detail-row"><dt>Interests</dt><dd>Networking, technology, design</dd></div>
+              <div class="detail-row"><dt>Mindset</dt><dd>Curious and growing</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow">02 / My learning journey</p>
+          <h2>Where it <span>all begins.</span></h2>
+          <span class="section-subtitle">Every chapter teaches me something new.</span>
+        </div>
+
+        <div class="timeline">
+          <article class="card education-card reveal">
+            <div class="icon-box"><i class="fa fa-graduation-cap"></i></div>
+            <div>
+              <p class="eyebrow">College • Current studies</p>
+              <h3>Nueva Vizcaya State University</h3>
+              <p>Information Technology — Network Design and Management</p>
+            </div>
+          </article>
+
+          <article class="card education-card reveal">
+            <div class="icon-box"><i class="fa fa-book"></i></div>
+            <div>
+              <p class="eyebrow">High School</p>
+              <h3>Bonfal National High School</h3>
+              <p>Secondary education</p>
+            </div>
+          </article>
+
+          <article class="card education-card reveal">
+            <div class="icon-box"><i class="fa fa-pencil"></i></div>
+            <div>
+              <p class="eyebrow">Elementary</p>
+              <h3>North Cabadbaran Central Elementary School</h3>
+              <p>Primary education</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Network Design and Management -->
+    <section id="networking" class="section">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow">03 / My major</p>
+          <h2>Understanding the <span>connections.</span></h2>
+          <span class="section-subtitle">The systems behind the way we connect.</span>
+        </div>
+
+        <div class="grid-2">
+          <article class="card topology-card reveal">
+            <div style="display:flex;align-items:center;gap:13px">
+              <span class="network-icon"><i class="fa fa-sitemap"></i></span>
+              <div>
+                <h3 style="margin-bottom:3px">A Connected World</h3>
+                <p style="font-size:.8rem">A simple network topology concept</p>
+              </div>
+            </div>
+
+            <svg class="topology" viewBox="0 0 320 220" role="img"
+              aria-label="A router connected to a switch, computers, a server, and other devices">
+              <path class="connection" d="M160 55 L160 100"/>
+              <path class="connection" d="M160 125 L65 165"/>
+              <path class="connection" d="M160 125 L255 165"/>
+              <path class="connection" d="M160 125 L160 181"/>
+
+              <rect class="node core" x="113" y="14" width="94" height="41" rx="10"/>
+              <text x="160" y="31" text-anchor="middle">ROUTER</text>
+              <text x="160" y="43" text-anchor="middle">Internet</text>
+
+              <rect class="node core" x="112" y="100" width="96" height="34" rx="9"/>
+              <text x="160" y="121" text-anchor="middle">SWITCH</text>
+
+              <rect class="node" x="15" y="160" width="100" height="43" rx="9"/>
+              <text x="65" y="178" text-anchor="middle">COMPUTERS</text>
+              <text x="65" y="191" text-anchor="middle">Clients</text>
+
+              <rect class="node" x="205" y="160" width="100" height="43" rx="9"/>
+              <text x="255" y="178" text-anchor="middle">SERVER</text>
+              <text x="255" y="191" text-anchor="middle">Resources</text>
+
+              <rect class="node" x="117" y="181" width="86" height="29" rx="8"/>
+              <text x="160" y="199" text-anchor="middle">DEVICES</text>
+            </svg>
+
+            <p>
+              I'm learning how network devices connect and communicate,
+              how data travels between systems, and why thoughtful network
+              design matters for reliable communication.
+            </p>
+          </article>
+
+          <article class="card about-card reveal">
+            <h3>What I'm working toward.</h3>
+            <p>
+              As an IT student majoring in Network Design and Management,
+              I'm interested in the planning, configuration, and maintenance
+              of networks that keep people and systems connected.
+            </p>
+
+            <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:22px">
+              <span class="tech-label"><i class="fa fa-share-alt"></i> Network topology</span>
+              <span class="tech-label"><i class="fa fa-globe"></i> IP addressing</span>
+              <span class="tech-label"><i class="fa fa-random"></i> Routing &amp; switching</span>
+              <span class="tech-label"><i class="fa fa-shield"></i> Network security</span>
+              <span class="tech-label"><i class="fa fa-wrench"></i> Troubleshooting</span>
+              <span class="tech-label"><i class="fa fa-server"></i> Infrastructure</span>
+            </div>
+
+            <p style="margin-top:22px">
+              My goal is to strengthen my technical foundation and learn
+              how to build, manage, and troubleshoot efficient, secure,
+              and dependable network environments.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow">04 / Ideas into experiences</p>
+          <h2>Things I'm <span>exploring.</span></h2>
+          <span class="section-subtitle">A growing collection of ideas and practice.</span>
+        </div>
+
+        <div class="grid-3">
+          <article class="card project-card reveal">
+            <div class="project-preview">
+              <div class="mini-browser">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="browser-content">
+                  <div class="browser-photo"></div>
+                  <div class="browser-lines"><span></span><span></span><span></span><span></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="sample-label">WEB DEVELOPMENT</div>
+              <h3>Personal Portfolio</h3>
+              <p>A personal website that brings my interests, learning journey, and creative identity together in one place.</p>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+              <a href="#home" class="project-link">Back to the top <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-preview purple">
+              <div class="database-art">
+                <i class="fa fa-sitemap"></i>
+                <div class="data-lines"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="sample-label">NETWORKING</div>
+              <h3>Network Topology Concept</h3>
+              <p>A learning concept for exploring device connections, network layouts, and how network components work together.</p>
+              <div class="tags"><span class="tag">Topology</span><span class="tag">IP Addressing</span><span class="tag">Infrastructure</span></div>
+              <a href="#networking" class="project-link">Explore my major <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-preview peach">
+              <div class="design-art"><div class="swatch"></div><div class="swatch"></div><div class="swatch"></div></div>
+            </div>
+            <div class="project-body">
+              <div class="sample-label">CREATIVE PRACTICE</div>
+              <h3>Visual Design Collection</h3>
+              <p>A space for exploring layouts, typography, colors, and the details that make digital work feel intentional.</p>
+              <div class="tags"><span class="tag">Layout</span><span class="tag">Typography</span><span class="tag">Color</span></div>
+              <a href="#contact" class="project-link">Share an idea <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <p class="disclaimer">
+          These project cards include practice concepts. Replace them with
+          completed projects and real examples as your portfolio grows.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow">05 / My growing toolkit</p>
+          <h2>Skills &amp; <span>interests.</span></h2>
+          <span class="section-subtitle">Still growing, still curious.</span>
+        </div>
+
+        <div class="grid-3">
+          <article class="card skill-card reveal">
+            <div class="icon-box"><i class="fa fa-sitemap"></i></div>
+            <h3>Networking &amp; Infrastructure</h3>
+            <p>
+              I'm building my understanding of how networks connect devices,
+              transfer data, and support reliable communication between systems.
+            </p>
+            <div class="tags">
+              <span class="tag">IP Addressing</span>
+              <span class="tag">Routing</span>
+              <span class="tag">Switching</span>
+              <span class="tag">Network Topology</span>
+              <span class="tag">Troubleshooting</span>
+            </div>
+          </article>
+
+          <article class="card skill-card reveal">
+            <div class="icon-box"><i class="fa fa-shield"></i></div>
+            <h3>Network Design &amp; Security</h3>
+            <p>
+              I'm interested in designing organized network layouts,
+              understanding configurations, and learning practices that
+              help protect connected systems.
+            </p>
+            <div class="tags">
+              <span class="tag">Network Design</span>
+              <span class="tag">Infrastructure</span>
+              <span class="tag">Basic Security</span>
+              <span class="tag">Problem-solving</span>
+            </div>
+          </article>
+
+          <article class="card skill-card reveal">
+            <div class="icon-box"><i class="fa fa-code"></i></div>
+            <h3>Technology &amp; Development</h3>
+            <p>
+              I enjoy turning ideas into working pages and exploring the
+              relationship between software, systems, and people.
+            </p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Research</span>
+              <span class="tag">Continuous learning</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="wrap">
+        <div class="contact-panel reveal">
+          <div class="contact-heading">
+            <p class="eyebrow">06 / Start a conversation</p>
+            <h2>Let's make something <span>meaningful.</span></h2>
+            <p>
+              Have an idea, a project, or something interesting to share?
+              I'm open to connecting, learning from others, and exploring
+              where a good idea might lead.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <a id="contact-email" class="contact-link" aria-disabled="true">
+              <i class="fa fa-envelope-o"></i>
+              <span><strong>Email</strong><small>Add email address</small></span>
+            </a>
+
+            <a id="contact-facebook" class="contact-link" aria-disabled="true">
+              <i class="fa fa-facebook"></i>
+              <span><strong>Facebook</strong><small>Add profile URL</small></span>
+            </a>
+
+            <a id="contact-github" class="contact-link" aria-disabled="true">
+              <i class="fa fa-github"></i>
+              <span><strong>GitHub</strong><small>Add profile URL</small></span>
+            </a>
+          </div>
+
+          <p id="contact-note" class="contact-note">
+            My contact details will appear here once I add my links.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <strong>Janelle Rubas Esmino</strong>
+        <p class="school">Nueva Vizcaya State University</p>
+      </div>
+      <div class="footer-copy">
+        <p>© <span id="year"></span> Janelle Esmino. All rights reserved.</p>
+        <p>Made with curiosity, patience, and a little creativity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add your actual contact details below.
+    const CONFIG = {
+      email: "",
+      facebook: "",
+      github: ""
+    };
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    let enabledContacts = 0;
+
+    Object.entries(CONFIG).forEach(([key, value]) => {
+      const link = document.getElementById("contact-" + key);
+      if (!link) return;
+
+      value = value.trim();
+      let valid = false;
+
+      if (key === "email") {
+        valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      } else {
+        try {
+          const url = new URL(value);
+          valid = url.protocol === "https:" || url.protocol === "http:";
+        } catch {
+          valid = false;
+        }
+      }
+
+      if (!valid) return;
+
+      link.href = key === "email" ? "mailto:" + value : value;
+      link.removeAttribute("aria-disabled");
+
+      const small = link.querySelector("small");
+      small.textContent = key === "email" ? value : "Visit my profile";
+
+      if (key !== "email") {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+
+      enabledContacts++;
+    });
+
+    if (enabledContacts === 3) {
+      document.getElementById("contact-note").hidden = true;
+    }
+
+    // Mobile navigation
+    const toggle = document.getElementById("menu-toggle");
+    const navigation = document.getElementById("nav-links");
+
+    function setMenu(open) {
+      navigation.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      toggle.querySelector("i").className = open ? "fa fa-times" : "fa fa-bars";
+    }
+
+    toggle.addEventListener("click", () => {
+      setMenu(toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        setMenu(false);
+        navigation.querySelectorAll("a").forEach(item => item.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") setMenu(false);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 700) setMenu(false);
+    });
+
+    // Reveal content as it enters the viewport
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      document.querySelectorAll(".reveal").forEach(element => {
+        revealObserver.observe(element);
+      });
+
+      const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          const currentId = entry.target.id;
+
+          navigation.querySelectorAll("a").forEach(link => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + currentId
+            );
+          });
+        });
+      }, { rootMargin: "-25% 0px -60% 0px" });
+
+      document.querySelectorAll("main > section").forEach(section => {
+        sectionObserver.observe(section);
+      });
+    } else {
+      document.querySelectorAll(".reveal").forEach(element => {
+        element.classList.add("visible");
+      });
+    }
+  </script>
+</body>
+</html>
