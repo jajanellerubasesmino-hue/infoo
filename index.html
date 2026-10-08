@@ -4,15 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Janelle Rubas Esmino's personal programmer portfolio showcasing education, projects, skills, and certifications.">
+    <meta name="description" content="Janelle Rubas Esmino's programmer portfolio">
     <title>Janelle Esmino | Programmer Portfolio</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
@@ -28,7 +25,7 @@
             --border: #f0dce5;
             --heading-font: "Playfair Display", Georgia, serif;
             --body-font: "DM Sans", Arial, sans-serif;
-            --shadow: 0 12px 35px rgba(127, 77, 100, 0.09);
+            --shadow: 0 12px 35px rgba(127, 77, 100, 0.10);
         }
 
         * {
@@ -47,13 +44,11 @@
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
-        button,
-        input,
-        textarea {
+        button, input, textarea {
             font: inherit;
         }
 
@@ -65,12 +60,13 @@
         section {
             padding: 100px 8%;
             scroll-margin-top: 80px;
+            position: relative;
         }
 
         h1, h2, h3, h4 {
             font-family: var(--heading-font);
-            line-height: 1.25;
             font-weight: 600;
+            line-height: 1.25;
         }
 
         h2 {
@@ -83,27 +79,8 @@
         }
 
         .container {
-            width: 100%;
             max-width: 1150px;
-            margin: 0 auto;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-heading .eyebrow {
-            color: var(--pink-dark);
-            font-size: 0.78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-        }
-
-        .section-heading p {
-            max-width: 600px;
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -111,32 +88,51 @@
             color: var(--pink-dark);
         }
 
+        .section-heading {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-heading .eyebrow {
+            color: var(--pink-dark);
+            font-size: .78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading > p:not(.eyebrow) {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         .btn {
             display: inline-flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             gap: 9px;
             padding: 13px 24px;
-            border-radius: 50px;
             border: 1px solid var(--pink);
+            border-radius: 50px;
             background: var(--pink);
             color: white;
+            font-size: .9rem;
             font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s ease;
             cursor: pointer;
+            transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
         }
 
         .btn:hover {
             background: var(--pink-dark);
             border-color: var(--pink-dark);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow);
         }
 
         .btn-outline {
-            background: transparent;
             color: var(--pink-dark);
+            background: transparent;
         }
 
         .btn-outline:hover {
@@ -149,26 +145,26 @@
             position: fixed;
             inset: 0 0 auto;
             z-index: 1000;
-            background: rgba(255, 250, 247, 0.93);
+            background: rgba(255, 250, 247, .91);
             backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(240, 220, 229, 0.8);
+            border-bottom: 1px solid rgba(240, 220, 229, .8);
         }
 
         nav {
-            max-width: 1250px;
             min-height: 76px;
+            max-width: 1250px;
             margin: auto;
             padding: 0 6%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
-            font-family: var(--heading-font);
-            font-size: 1.35rem;
-            font-weight: 700;
             color: var(--pink-dark);
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-size: 1.4rem;
             white-space: nowrap;
         }
 
@@ -178,16 +174,16 @@
 
         .nav-links {
             display: flex;
-            gap: 27px;
+            gap: 23px;
             align-items: center;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--text);
-            font-size: 0.85rem;
+            font-size: .83rem;
             font-weight: 600;
-            transition: color 0.2s;
+            transition: color .25s ease;
         }
 
         .nav-links a:hover,
@@ -197,57 +193,77 @@
 
         .menu-toggle {
             display: none;
-            border: none;
+            border: 0;
             background: transparent;
             color: var(--pink-dark);
             font-size: 1.5rem;
             cursor: pointer;
         }
 
-        /* DECORATIVE FLOWERS */
+        /* ANIMATED BACKGROUND */
+
+        .flower-layer {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: 2;
+            pointer-events: none;
+        }
 
         .flower {
-            position: fixed;
-            z-index: -1;
-            pointer-events: none;
-            color: #e5b2c5;
-            opacity: 0.45;
-            animation: floatFlower 7s ease-in-out infinite;
+            position: absolute;
+            color: #d99bb5;
+            opacity: .52;
+            animation: flowerFloat 7s ease-in-out infinite;
+            filter: drop-shadow(0 3px 5px rgba(173, 96, 127, .12));
         }
 
-        .flower.one {
-            top: 17%;
-            left: 3%;
-            font-size: 32px;
-        }
+        .flower.f1 { top: 18%; left: 3%; font-size: 30px; }
+        .flower.f2 { top: 52%; right: 4%; font-size: 25px; animation-delay: 1.5s; }
+        .flower.f3 { top: 78%; left: 8%; font-size: 22px; animation-delay: 3s; }
+        .flower.f4 { top: 30%; right: 12%; font-size: 18px; animation-delay: 2s; }
+        .flower.f5 { top: 90%; right: 18%; font-size: 25px; animation-delay: 4s; }
+        .flower.f6 { top: 8%; right: 32%; font-size: 17px; animation-delay: 2.5s; }
 
-        .flower.two {
-            top: 55%;
-            right: 4%;
-            font-size: 25px;
-            animation-delay: 2s;
-        }
-
-        .flower.three {
-            bottom: 8%;
-            left: 7%;
-            font-size: 23px;
-            animation-delay: 3s;
-        }
-
-        .flower.four {
-            top: 35%;
-            right: 12%;
-            font-size: 18px;
-            animation-delay: 1s;
-        }
-
-        @keyframes floatFlower {
+        @keyframes flowerFloat {
             0%, 100% {
                 transform: translateY(0) rotate(0deg);
             }
             50% {
-                transform: translateY(-16px) rotate(18deg);
+                transform: translateY(-18px) rotate(18deg);
+            }
+        }
+
+        /* PETALS CREATED BY JAVASCRIPT */
+
+        .petal {
+            position: fixed;
+            top: -35px;
+            z-index: 3;
+            pointer-events: none;
+            color: #d88ba9;
+            opacity: .55;
+            animation: petalFall linear forwards;
+            will-change: transform;
+        }
+
+        @keyframes petalFall {
+            0% {
+                transform: translate3d(0, -5vh, 0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: .6;
+            }
+            50% {
+                transform: translate3d(55px, 50vh, 0) rotate(180deg);
+            }
+            90% {
+                opacity: .45;
+            }
+            100% {
+                transform: translate3d(-35px, 110vh, 0) rotate(360deg);
+                opacity: 0;
             }
         }
 
@@ -260,14 +276,14 @@
             display: flex;
             align-items: center;
             background:
-                radial-gradient(ellipse at 12% 18%, rgba(248, 230, 237, 0.85), transparent 38%),
-                radial-gradient(ellipse at 88% 82%, rgba(238, 233, 247, 0.85), transparent 38%),
+                radial-gradient(ellipse at 12% 18%, rgba(248, 230, 237, .9), transparent 38%),
+                radial-gradient(ellipse at 88% 82%, rgba(238, 233, 247, .9), transparent 38%),
                 var(--cream);
         }
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+            grid-template-columns: 1.15fr .85fr;
             gap: 70px;
             align-items: center;
         }
@@ -276,18 +292,14 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--white);
+            padding: 8px 15px;
+            margin-bottom: 24px;
+            background: white;
             border: 1px solid var(--border);
             border-radius: 50px;
-            padding: 8px 15px;
             color: var(--pink-dark);
-            font-size: 0.78rem;
+            font-size: .78rem;
             font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        .hero-tag i {
-            color: var(--pink);
         }
 
         .hero h1 {
@@ -304,20 +316,18 @@
         .hero-description {
             max-width: 540px;
             margin-bottom: 30px;
-            font-size: 1rem;
         }
 
         .hero-buttons {
             display: flex;
             gap: 13px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .hero-socials {
             display: flex;
             gap: 12px;
-            align-items: center;
         }
 
         .hero-socials a {
@@ -326,55 +336,55 @@
             width: 42px;
             height: 42px;
             background: white;
-            color: var(--pink-dark);
             border: 1px solid var(--border);
             border-radius: 50%;
-            transition: 0.3s;
+            color: var(--pink-dark);
+            transition: transform .3s, background .3s, color .3s;
         }
 
         .hero-socials a:hover {
-            color: white;
             background: var(--pink);
-            transform: translateY(-4px);
+            color: white;
+            transform: translateY(-5px) rotate(-8deg);
         }
 
         .hero-image-wrap {
             position: relative;
             max-width: 410px;
             margin: auto;
+            animation: portraitFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes portraitFloat {
+            0%, 100% { transform: translateY(0) rotate(1deg); }
+            50% { transform: translateY(-10px) rotate(-1deg); }
         }
 
         .hero-image-frame {
-            position: relative;
             aspect-ratio: 4 / 5;
-            border-radius: 48% 48% 25px 25px;
             padding: 12px;
+            border-radius: 48% 48% 25px 25px;
             background: linear-gradient(145deg, #f3c9d9, #e6dcf5, #f8e6ed);
             box-shadow: var(--shadow);
-            transform: rotate(2deg);
         }
 
-        .hero-image-frame img {
+        .hero-image-frame img,
+        .photo-placeholder {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
             border-radius: 48% 48% 18px 18px;
             background: var(--pink-light);
         }
 
         .photo-placeholder {
-            width: 100%;
-            height: 100%;
-            border-radius: inherit;
             display: none;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            gap: 15px;
-            text-align: center;
+            gap: 12px;
             padding: 25px;
-            background: var(--pink-light);
+            text-align: center;
             color: var(--pink-dark);
         }
 
@@ -384,26 +394,30 @@
 
         .photo-note {
             position: absolute;
-            right: -28px;
+            right: -25px;
             bottom: 35px;
-            max-width: 180px;
+            max-width: 190px;
             padding: 17px 20px;
             background: white;
             border: 1px solid var(--border);
             border-radius: 18px;
             box-shadow: var(--shadow);
-            transform: rotate(-3deg);
+            animation: noteFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes noteFloat {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
         }
 
         .photo-note strong {
             display: block;
             color: var(--pink-dark);
             font-family: var(--heading-font);
-            font-size: 1.05rem;
         }
 
         .photo-note span {
-            font-size: 0.75rem;
+            font-size: .75rem;
             color: var(--muted);
         }
 
@@ -415,13 +429,14 @@
 
         .about-grid {
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
+            grid-template-columns: .9fr 1.1fr;
             gap: 55px;
             align-items: center;
         }
 
         .about-illustration {
             min-height: 370px;
+            padding: 35px;
             border-radius: 30px;
             background: linear-gradient(145deg, var(--pink-light), var(--lavender));
             display: flex;
@@ -429,9 +444,6 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 35px;
-            position: relative;
-            overflow: hidden;
         }
 
         .about-illustration .big-icon {
@@ -439,25 +451,23 @@
             place-items: center;
             width: 125px;
             height: 125px;
+            margin-bottom: 25px;
             background: white;
             border-radius: 50%;
             color: var(--pink-dark);
             font-size: 3rem;
             box-shadow: var(--shadow);
-            margin-bottom: 25px;
+            animation: iconFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-9px); }
         }
 
         .about-illustration h3 {
             font-size: 1.6rem;
             margin-bottom: 10px;
-        }
-
-        .about-illustration p {
-            max-width: 280px;
-        }
-
-        .about-copy h2 {
-            margin-bottom: 22px;
         }
 
         .about-copy > p {
@@ -474,19 +484,25 @@
         .detail {
             padding: 14px;
             border: 1px solid var(--border);
-            background: var(--cream);
             border-radius: 14px;
+            background: var(--cream);
+            transition: transform .3s, border-color .3s;
+        }
+
+        .detail:hover {
+            transform: translateY(-4px);
+            border-color: var(--pink);
         }
 
         .detail span {
             display: block;
             color: var(--muted);
-            font-size: 0.74rem;
+            font-size: .74rem;
             margin-bottom: 3px;
         }
 
         .detail strong {
-            font-size: 0.9rem;
+            font-size: .9rem;
             overflow-wrap: anywhere;
         }
 
@@ -499,7 +515,7 @@
             background: var(--pink-light);
             color: var(--pink-dark);
             font-weight: 700;
-            font-size: 0.86rem;
+            font-size: .86rem;
         }
 
         /* EDUCATION */
@@ -515,16 +531,17 @@
         }
 
         .education-card {
+            padding: 28px;
             background: white;
             border: 1px solid var(--border);
             border-radius: 22px;
-            padding: 28px;
             box-shadow: var(--shadow);
-            transition: 0.3s;
+            transition: transform .35s, box-shadow .35s;
         }
 
         .education-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(127, 77, 100, .14);
         }
 
         .card-icon {
@@ -532,11 +549,20 @@
             place-items: center;
             width: 52px;
             height: 52px;
-            border-radius: 16px;
-            color: var(--pink-dark);
-            background: var(--pink-light);
-            font-size: 1.25rem;
             margin-bottom: 20px;
+            border-radius: 16px;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            font-size: 1.25rem;
+        }
+
+        .education-card .level {
+            color: var(--pink-dark);
+            font-size: .76rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
         .education-card h3 {
@@ -544,27 +570,18 @@
             margin-bottom: 12px;
         }
 
-        .education-card .level {
-            color: var(--pink-dark);
-            font-size: 0.76rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
         .education-card p {
-            font-size: 0.9rem;
+            font-size: .9rem;
         }
 
-        .education-card .status {
+        .status {
             display: inline-block;
             margin-top: 18px;
+            padding: 6px 12px;
             background: var(--lavender);
             color: #76638f;
             border-radius: 30px;
-            padding: 6px 12px;
-            font-size: 0.75rem;
+            font-size: .75rem;
             font-weight: 700;
         }
 
@@ -601,10 +618,9 @@
         .major-list li {
             display: flex;
             gap: 12px;
-            align-items: flex-start;
             margin: 12px 0;
             color: var(--text);
-            font-size: 0.92rem;
+            font-size: .92rem;
         }
 
         .major-list i {
@@ -613,10 +629,10 @@
         }
 
         .network-diagram {
-            background: rgba(255, 255, 255, 0.75);
-            border: 1px solid rgba(216, 139, 169, 0.3);
-            border-radius: 22px;
             padding: 30px 20px;
+            background: rgba(255, 255, 255, .75);
+            border: 1px solid rgba(216, 139, 169, .3);
+            border-radius: 22px;
         }
 
         .network-node {
@@ -630,8 +646,14 @@
             background: white;
             text-align: center;
             color: var(--pink-dark);
-            font-size: 0.82rem;
+            font-size: .82rem;
             font-weight: 700;
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .network-node:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow);
         }
 
         .network-line {
@@ -659,9 +681,9 @@
         }
 
         .network-branch {
-            text-align: center;
-            padding-top: 19px;
             position: relative;
+            padding-top: 19px;
+            text-align: center;
         }
 
         .network-branch::before {
@@ -675,10 +697,10 @@
         }
 
         .network-branch .network-node {
-            min-width: 0;
             width: 100%;
+            min-width: 0;
             padding: 12px 4px;
-            font-size: 0.72rem;
+            font-size: .72rem;
         }
 
         /* CERTIFICATION */
@@ -698,12 +720,17 @@
             border: 1px solid var(--border);
             border-radius: 24px;
             box-shadow: var(--shadow);
+            transition: transform .3s;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
         }
 
         .certificate-icon {
-            flex-shrink: 0;
             display: grid;
             place-items: center;
+            flex-shrink: 0;
             width: 100px;
             height: 100px;
             background: var(--pink-light);
@@ -726,7 +753,7 @@
             align-items: center;
             gap: 8px;
             color: var(--pink-dark);
-            font-size: 0.82rem;
+            font-size: .82rem;
             font-weight: 700;
         }
 
@@ -747,11 +774,11 @@
             border-radius: 22px;
             overflow: hidden;
             background: white;
-            transition: 0.3s;
+            transition: transform .35s, box-shadow .35s;
         }
 
         .project-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow);
         }
 
@@ -762,6 +789,11 @@
             background: linear-gradient(135deg, var(--pink-light), var(--lavender));
             color: var(--pink-dark);
             font-size: 3rem;
+            transition: background .3s;
+        }
+
+        .project-card:hover .project-visual {
+            background: linear-gradient(135deg, #f1d0de, #e1d6f2);
         }
 
         .project-content {
@@ -774,7 +806,7 @@
         }
 
         .project-content p {
-            font-size: 0.9rem;
+            font-size: .9rem;
             margin-bottom: 18px;
         }
 
@@ -785,11 +817,11 @@
         }
 
         .tag {
+            padding: 5px 10px;
             background: var(--pink-light);
             color: var(--pink-dark);
-            padding: 5px 10px;
             border-radius: 30px;
-            font-size: 0.72rem;
+            font-size: .72rem;
             font-weight: 700;
         }
 
@@ -811,12 +843,13 @@
             background: white;
             border: 1px solid var(--border);
             border-radius: 19px;
-            transition: 0.3s;
+            transition: transform .3s, background .3s, box-shadow .3s;
         }
 
         .skill-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-7px);
             background: var(--pink-light);
+            box-shadow: var(--shadow);
         }
 
         .skill-card i {
@@ -827,12 +860,12 @@
 
         .skill-card h3 {
             font-family: var(--body-font);
-            font-size: 0.94rem;
+            font-size: .94rem;
             margin-bottom: 7px;
         }
 
         .skill-card p {
-            font-size: 0.78rem;
+            font-size: .78rem;
         }
 
         /* CONTACT */
@@ -843,7 +876,7 @@
 
         .contact-panel {
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
+            grid-template-columns: .9fr 1.1fr;
             gap: 45px;
             padding: 45px;
             border-radius: 28px;
@@ -866,7 +899,7 @@
             margin: 20px 0;
         }
 
-        .contact-item .contact-icon {
+        .contact-icon {
             display: grid;
             place-items: center;
             flex-shrink: 0;
@@ -880,12 +913,12 @@
         .contact-item small {
             display: block;
             color: var(--muted);
-            font-size: 0.75rem;
+            font-size: .75rem;
         }
 
         .contact-item strong {
             display: block;
-            font-size: 0.9rem;
+            font-size: .9rem;
             overflow-wrap: anywhere;
         }
 
@@ -895,8 +928,8 @@
 
         .social-links {
             display: flex;
-            gap: 10px;
             flex-wrap: wrap;
+            gap: 10px;
             margin-top: 25px;
         }
 
@@ -905,20 +938,20 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            padding: 10px 14px;
             background: white;
             border: 1px solid var(--border);
             border-radius: 30px;
-            padding: 10px 14px;
             color: var(--pink-dark);
-            font-size: 0.82rem;
+            font-size: .82rem;
             font-weight: 700;
-            transition: 0.3s;
+            transition: transform .3s, background .3s, color .3s;
         }
 
         .social-links a:hover {
             background: var(--pink);
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
 
         .contact-form {
@@ -939,7 +972,7 @@
 
         .form-group label {
             display: block;
-            font-size: 0.82rem;
+            font-size: .82rem;
             font-weight: 700;
             margin-bottom: 7px;
         }
@@ -953,12 +986,13 @@
             outline: none;
             color: var(--text);
             background: var(--cream);
-            transition: border-color 0.2s;
+            transition: border-color .3s, box-shadow .3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             border-color: var(--pink);
+            box-shadow: 0 0 0 3px rgba(216, 139, 169, .12);
         }
 
         .form-group textarea {
@@ -968,7 +1002,7 @@
 
         .form-note {
             margin-top: 12px;
-            font-size: 0.75rem;
+            font-size: .75rem;
         }
 
         /* FOOTER */
@@ -980,17 +1014,29 @@
         }
 
         footer p {
-            font-size: 0.85rem;
+            font-size: .85rem;
         }
 
-        footer .footer-heart {
+        .footer-heart {
             color: var(--pink-dark);
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.22); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
         }
 
         .back-to-top {
             position: fixed;
             bottom: 22px;
             right: 22px;
+            z-index: 900;
+            display: grid;
+            place-items: center;
             width: 43px;
             height: 43px;
             border: none;
@@ -1000,23 +1046,24 @@
             font-size: 1rem;
             box-shadow: var(--shadow);
             cursor: pointer;
-            z-index: 900;
             opacity: 0;
             visibility: hidden;
-            transition: 0.3s;
+            transform: translateY(10px);
+            transition: .3s;
         }
 
         .back-to-top.visible {
             opacity: 1;
             visibility: visible;
+            transform: translateY(0);
         }
 
-        /* REVEAL ANIMATIONS */
+        /* SCROLL REVEAL */
 
         .reveal {
             opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transform: translateY(28px);
+            transition: opacity .8s ease, transform .8s ease;
         }
 
         .reveal.show {
@@ -1024,43 +1071,48 @@
             transform: translateY(0);
         }
 
-        /* RESPONSIVE DESIGN */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+
+        .reveal-left.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+
+        .reveal-right.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* RESPONSIVE */
 
         @media (max-width: 1000px) {
-            .nav-links {
-                gap: 15px;
-            }
-
-            .nav-links a {
-                font-size: 0.78rem;
-            }
-
-            .hero-content {
-                gap: 40px;
-            }
-
-            .education-grid,
-            .projects-grid {
+            .nav-links { gap: 14px; }
+            .nav-links a { font-size: .76rem; }
+            .hero-content { gap: 40px; }
+            .education-grid, .projects-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-
             .skills-grid {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
             }
         }
 
         @media (max-width: 760px) {
-            section {
-                padding: 75px 6%;
-            }
+            section { padding: 75px 6%; }
 
-            nav {
-                min-height: 68px;
-            }
+            nav { min-height: 68px; }
 
-            .menu-toggle {
-                display: block;
-            }
+            .menu-toggle { display: block; }
 
             .nav-links {
                 display: none;
@@ -1076,19 +1128,15 @@
                 gap: 0;
             }
 
-            .nav-links.open {
-                display: flex;
-            }
+            .nav-links.open { display: flex; }
 
             .nav-links a {
                 display: block;
                 padding: 12px 0;
-                font-size: 0.9rem;
+                font-size: .9rem;
             }
 
-            .hero {
-                padding-top: 115px;
-            }
+            .hero { padding-top: 115px; }
 
             .hero-content,
             .about-grid,
@@ -1097,13 +1145,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .hero-content {
-                gap: 45px;
-            }
+            .hero-content { gap: 45px; }
 
-            .hero-text {
-                text-align: center;
-            }
+            .hero-text { text-align: center; }
 
             .hero-description {
                 margin-left: auto;
@@ -1115,21 +1159,13 @@
                 justify-content: center;
             }
 
-            .hero-image-wrap {
-                width: min(85%, 350px);
-            }
+            .hero-image-wrap { width: min(85%, 350px); }
 
-            .photo-note {
-                right: -12px;
-            }
+            .photo-note { right: -12px; }
 
-            .about-grid {
-                gap: 35px;
-            }
+            .about-grid { gap: 35px; }
 
-            .about-illustration {
-                min-height: 300px;
-            }
+            .about-illustration { min-height: 300px; }
 
             .major-panel,
             .contact-panel {
@@ -1150,9 +1186,7 @@
         }
 
         @media (max-width: 500px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
+            .hero h1 { font-size: 2.8rem; }
 
             .education-grid,
             .projects-grid {
@@ -1164,37 +1198,28 @@
                 gap: 12px;
             }
 
-            .personal-details {
-                grid-template-columns: 1fr;
-            }
+            .personal-details { grid-template-columns: 1fr; }
 
-            .certification-card {
-                flex-direction: column;
-            }
+            .certification-card { flex-direction: column; }
 
-            .network-diagram {
-                padding: 25px 12px;
-            }
+            .network-diagram { padding: 25px 12px; }
 
             .network-node {
                 min-width: 90px;
                 padding: 11px;
             }
 
-            .contact-panel {
-                padding: 20px;
-            }
+            .contact-panel { padding: 20px; }
 
-            .contact-form {
-                padding: 20px;
-            }
+            .contact-form { padding: 20px; }
 
             .hero-buttons .btn {
                 padding: 12px 17px;
             }
 
-            .flower.two,
-            .flower.four {
+            .flower.f2,
+            .flower.f4,
+            .flower.f6 {
                 display: none;
             }
         }
@@ -1203,26 +1228,35 @@
             *,
             *::before,
             *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
                 scroll-behavior: auto !important;
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
             }
 
-            .reveal {
+            .reveal,
+            .reveal-left,
+            .reveal-right {
                 opacity: 1;
                 transform: none;
             }
+
+            .petal { display: none; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Decorative floating flowers -->
-    <div class="flower one" aria-hidden="true">✿</div>
-    <div class="flower two" aria-hidden="true">✽</div>
-    <div class="flower three" aria-hidden="true">❀</div>
-    <div class="flower four" aria-hidden="true">✿</div>
+    <!-- Floating decorative flowers -->
+    <div class="flower-layer" aria-hidden="true">
+        <span class="flower f1">✿</span>
+        <span class="flower f2">✽</span>
+        <span class="flower f3">❀</span>
+        <span class="flower f4">✿</span>
+        <span class="flower f5">✽</span>
+        <span class="flower f6">❀</span>
+    </div>
 
     <!-- Navigation -->
     <header>
@@ -1249,11 +1283,11 @@
         </nav>
     </header>
 
-    <!-- Home -->
+    <!-- HOME -->
     <section class="hero" id="home">
         <div class="container hero-content">
 
-            <div class="hero-text reveal">
+            <div class="hero-text reveal-left">
                 <div class="hero-tag">
                     <i class="fa-solid fa-heart"></i>
                     Welcome to my little corner of the web
@@ -1284,7 +1318,6 @@
                 </div>
 
                 <div class="hero-socials">
-                    <!-- REPLACE these sample social links with your own URLs -->
                     <a href="https://www.facebook.com/YOUR_USERNAME"
                        target="_blank" rel="noopener noreferrer"
                        aria-label="Facebook">
@@ -1311,13 +1344,11 @@
                 </div>
             </div>
 
-            <div class="hero-image-wrap reveal">
+            <div class="hero-image-wrap reveal-right">
                 <div class="hero-image-frame">
-                    <img
-                        src="me.png"
-                        alt="Portrait of Janelle Rubas Esmino"
-                        id="profilePhoto"
-                    >
+                    <img src="me.png"
+                         alt="Portrait of Janelle Rubas Esmino"
+                         id="profilePhoto">
 
                     <div class="photo-placeholder" id="photoPlaceholder">
                         <i class="fa-regular fa-image"></i>
@@ -1335,11 +1366,11 @@
         </div>
     </section>
 
-    <!-- About -->
+    <!-- ABOUT -->
     <section class="about" id="about">
         <div class="container about-grid">
 
-            <div class="about-illustration reveal">
+            <div class="about-illustration reveal-left">
                 <div class="big-icon">
                     <i class="fa-solid fa-laptop-code"></i>
                 </div>
@@ -1350,7 +1381,7 @@
                 </p>
             </div>
 
-            <div class="about-copy reveal">
+            <div class="about-copy reveal-right">
                 <div class="section-heading" style="text-align:left; margin-bottom:22px;">
                     <p class="eyebrow">A little about me</p>
                     <h2>Getting to Know <span class="accent">Me</span></h2>
@@ -1359,8 +1390,8 @@
                 <p>
                     Hi! I'm Janelle Rubas Esmino, an aspiring IT professional
                     with an interest in computer systems, networking, and
-                    technology. I believe that every new challenge is an
-                    opportunity to learn something valuable.
+                    technology. I believe every new challenge is an opportunity
+                    to learn something valuable.
                 </p>
 
                 <p>
@@ -1375,17 +1406,14 @@
                         <span>Full Name</span>
                         <strong>Janelle Rubas Esmino</strong>
                     </div>
-
                     <div class="detail">
                         <span>Field of Interest</span>
                         <strong>Information Technology</strong>
                     </div>
-
                     <div class="detail">
                         <span>Major</span>
                         <strong>Network Design and Management</strong>
                     </div>
-
                     <div class="detail">
                         <span>Certification</span>
                         <strong>CSS NC II Passer</strong>
@@ -1401,7 +1429,7 @@
         </div>
     </section>
 
-    <!-- Education -->
+    <!-- EDUCATION -->
     <section class="education" id="education">
         <div class="container">
             <div class="section-heading reveal">
@@ -1414,12 +1442,11 @@
             </div>
 
             <div class="education-grid">
-
                 <article class="education-card reveal">
                     <div class="card-icon">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
-                    <p class="level">Current / Higher Education</p>
+                    <p class="level">Higher Education</p>
                     <h3>Nueva Vizcaya State University</h3>
                     <p>
                         Pursuing my academic journey in the field of
@@ -1453,12 +1480,11 @@
                     </p>
                     <span class="status">Elementary</span>
                 </article>
-
             </div>
         </div>
     </section>
 
-    <!-- Major -->
+    <!-- MAJOR -->
     <section class="major" id="major">
         <div class="container">
             <div class="section-heading reveal">
@@ -1473,7 +1499,6 @@
             <div class="major-panel reveal">
                 <div>
                     <h3>Connecting People Through Technology</h3>
-
                     <p>
                         Network Design and Management focuses on planning,
                         configuring, maintaining, and troubleshooting computer
@@ -1482,59 +1507,37 @@
                     </p>
 
                     <ul class="major-list">
-                        <li>
-                            <i class="fa-solid fa-circle-check"></i>
-                            Understanding network devices and topologies.
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-circle-check"></i>
-                            Learning IP addressing and basic network configuration.
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-circle-check"></i>
-                            Practicing computer setup and troubleshooting.
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-circle-check"></i>
-                            Exploring network security and maintenance.
-                        </li>
+                        <li><i class="fa-solid fa-circle-check"></i> Understanding network devices and topologies.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Learning IP addressing and basic network configuration.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Practicing computer setup and troubleshooting.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Exploring network security and maintenance.</li>
                     </ul>
                 </div>
 
-                <div class="network-diagram" aria-label="Illustration of a simple computer network">
+                <div class="network-diagram">
                     <div class="network-node">
-                        <i class="fa-solid fa-globe"></i>
-                        &nbsp; Internet
+                        <i class="fa-solid fa-globe"></i> Internet
                     </div>
-
                     <div class="network-line"></div>
-
                     <div class="network-node">
-                        <i class="fa-solid fa-wifi"></i>
-                        &nbsp; Router
+                        <i class="fa-solid fa-wifi"></i> Router
                     </div>
-
                     <div class="network-line"></div>
 
                     <div class="network-branches">
                         <div class="network-branch">
                             <div class="network-node">
-                                <i class="fa-solid fa-desktop"></i>
-                                <br>Computer
+                                <i class="fa-solid fa-desktop"></i><br>Computer
                             </div>
                         </div>
-
                         <div class="network-branch">
                             <div class="network-node">
-                                <i class="fa-solid fa-server"></i>
-                                <br>Server
+                                <i class="fa-solid fa-server"></i><br>Server
                             </div>
                         </div>
-
                         <div class="network-branch">
                             <div class="network-node">
-                                <i class="fa-solid fa-mobile-screen"></i>
-                                <br>Device
+                                <i class="fa-solid fa-mobile-screen"></i><br>Device
                             </div>
                         </div>
                     </div>
@@ -1543,7 +1546,7 @@
         </div>
     </section>
 
-    <!-- Certification -->
+    <!-- CERTIFICATION -->
     <section class="certification" id="certification">
         <div class="container">
             <div class="section-heading reveal">
@@ -1559,17 +1562,14 @@
                 <div class="certificate-icon">
                     <i class="fa-solid fa-award"></i>
                 </div>
-
                 <div>
                     <h3>Computer Systems Servicing NC II</h3>
-
                     <p>
                         I am an NC II passer in Computer Systems Servicing
                         (CSS), a qualification associated with computer
                         assembly, installation, configuration, maintenance,
                         and troubleshooting.
                     </p>
-
                     <span class="verified-label">
                         <i class="fa-solid fa-circle-check"></i>
                         NC II Passer
@@ -1579,21 +1579,20 @@
         </div>
     </section>
 
-    <!-- Projects -->
+    <!-- PROJECTS -->
     <section class="projects" id="projects">
         <div class="container">
             <div class="section-heading reveal">
                 <p class="eyebrow">Things I can work on</p>
                 <h2>My <span class="accent">Projects</span></h2>
                 <p>
-                    A collection of project ideas and practical work related
-                    to web development, computer servicing, and networking.
-                    Replace these examples with your actual completed projects.
+                    Project examples related to web development, computer
+                    servicing, and networking. Replace these with your actual
+                    completed projects as you build your portfolio.
                 </p>
             </div>
 
             <div class="projects-grid">
-
                 <article class="project-card reveal">
                     <div class="project-visual">
                         <i class="fa-solid fa-code"></i>
@@ -1601,7 +1600,7 @@
                     <div class="project-content">
                         <h3>Personal Portfolio Website</h3>
                         <p>
-                            A personal website that introduces my background,
+                            A personal website introducing my background,
                             education, certification, skills, and contact details.
                         </p>
                         <div class="tag-list">
@@ -1637,9 +1636,9 @@
                     <div class="project-content">
                         <h3>Computer Servicing</h3>
                         <p>
-                            A computer maintenance and troubleshooting practice
-                            covering hardware components, system setup, and
-                            basic software installation.
+                            Computer maintenance and troubleshooting practice
+                            covering hardware components, system setup,
+                            and basic software installation.
                         </p>
                         <div class="tag-list">
                             <span class="tag">CSS NC II</span>
@@ -1648,12 +1647,11 @@
                         </div>
                     </div>
                 </article>
-
             </div>
         </div>
     </section>
 
-    <!-- Skills -->
+    <!-- SKILLS -->
     <section class="skills" id="skills">
         <div class="container">
             <div class="section-heading reveal">
@@ -1666,83 +1664,71 @@
             </div>
 
             <div class="skills-grid">
-
                 <div class="skill-card reveal">
                     <i class="fa-brands fa-html5"></i>
                     <h3>HTML</h3>
                     <p>Building webpage structure</p>
                 </div>
-
                 <div class="skill-card reveal">
                     <i class="fa-brands fa-css3-alt"></i>
                     <h3>CSS</h3>
                     <p>Styling and responsive layouts</p>
                 </div>
-
                 <div class="skill-card reveal">
                     <i class="fa-brands fa-js"></i>
                     <h3>JavaScript</h3>
-                    <p>Learning interactive web features</p>
+                    <p>Interactive web features</p>
                 </div>
-
                 <div class="skill-card reveal">
                     <i class="fa-solid fa-network-wired"></i>
                     <h3>Networking</h3>
                     <p>Network concepts and configuration</p>
                 </div>
-
                 <div class="skill-card reveal">
                     <i class="fa-solid fa-computer"></i>
                     <h3>Computer Servicing</h3>
                     <p>Hardware and system maintenance</p>
                 </div>
-
                 <div class="skill-card reveal">
                     <i class="fa-solid fa-bug"></i>
                     <h3>Troubleshooting</h3>
                     <p>Identifying and solving problems</p>
                 </div>
-
                 <div class="skill-card reveal">
                     <i class="fa-solid fa-people-group"></i>
                     <h3>Teamwork</h3>
                     <p>Collaborating with others</p>
                 </div>
-
                 <div class="skill-card reveal">
                     <i class="fa-solid fa-lightbulb"></i>
                     <h3>Problem-Solving</h3>
                     <p>Thinking through challenges</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-heading reveal">
                 <p class="eyebrow">Let's connect</p>
                 <h2>Get in <span class="accent">Touch</span></h2>
                 <p>
-                    Have a question or want to connect? You can reach me
-                    through my email or social media accounts.
+                    Have a question or want to connect? Reach me through
+                    email or my social media accounts.
                 </p>
             </div>
 
             <div class="contact-panel reveal">
-
                 <div class="contact-copy">
                     <h3>I'd love to hear from you!</h3>
-
                     <p>
                         Whether it's about technology, school projects,
                         networking, or future opportunities, feel free
                         to reach out.
                     </p>
 
-                    <!-- REPLACE the email address below with your actual email -->
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fa-regular fa-envelope"></i>
@@ -1750,15 +1736,13 @@
                         <div>
                             <small>Email Address</small>
                             <strong>
-                                <a href="mailto:YOUR_EMAIL@gmail.com"
-                                   id="emailText">
+                                <a href="mailto:YOUR_EMAIL@gmail.com" id="emailText">
                                     YOUR_EMAIL@gmail.com
                                 </a>
                             </strong>
                         </div>
                     </div>
 
-                    <!-- REPLACE the Facebook URL and username -->
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fa-brands fa-facebook-f"></i>
@@ -1767,15 +1751,13 @@
                             <small>Facebook</small>
                             <strong>
                                 <a href="https://www.facebook.com/YOUR_USERNAME"
-                                   target="_blank"
-                                   rel="noopener noreferrer">
+                                   target="_blank" rel="noopener noreferrer">
                                     Visit my Facebook profile
                                 </a>
                             </strong>
                         </div>
                     </div>
 
-                    <!-- REPLACE the GitHub URL and username -->
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fa-brands fa-github"></i>
@@ -1784,8 +1766,7 @@
                             <small>GitHub</small>
                             <strong>
                                 <a href="https://github.com/YOUR_USERNAME"
-                                   target="_blank"
-                                   rel="noopener noreferrer">
+                                   target="_blank" rel="noopener noreferrer">
                                     Visit my GitHub profile
                                 </a>
                             </strong>
@@ -1795,55 +1776,37 @@
                     <div class="social-links">
                         <a href="https://www.instagram.com/YOUR_USERNAME/"
                            target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-instagram"></i>
-                            Instagram
+                            <i class="fa-brands fa-instagram"></i> Instagram
                         </a>
-
                         <a href="https://www.linkedin.com/in/YOUR_USERNAME/"
                            target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                            LinkedIn
+                            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
                         </a>
                     </div>
                 </div>
 
-                <!-- This form opens the visitor's email application.
-                     It does not send messages directly from the website. -->
                 <form class="contact-form" id="contactForm">
                     <h3>Send Me a Message</h3>
 
                     <div class="form-group">
                         <label for="visitorName">Your Name</label>
-                        <input
-                            type="text"
-                            id="visitorName"
-                            name="visitorName"
-                            placeholder="Enter your name"
-                            autocomplete="name"
-                            required
-                        >
+                        <input type="text" id="visitorName"
+                               name="visitorName" placeholder="Enter your name"
+                               autocomplete="name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="visitorEmail">Your Email</label>
-                        <input
-                            type="email"
-                            id="visitorEmail"
-                            name="visitorEmail"
-                            placeholder="Enter your email address"
-                            autocomplete="email"
-                            required
-                        >
+                        <input type="email" id="visitorEmail"
+                               name="visitorEmail" placeholder="Enter your email"
+                               autocomplete="email" required>
                     </div>
 
                     <div class="form-group">
                         <label for="visitorMessage">Your Message</label>
-                        <textarea
-                            id="visitorMessage"
-                            name="visitorMessage"
-                            placeholder="Write your message here..."
-                            required
-                        ></textarea>
+                        <textarea id="visitorMessage" name="visitorMessage"
+                                  placeholder="Write your message here..."
+                                  required></textarea>
                     </div>
 
                     <button type="submit" class="btn">
@@ -1852,16 +1815,16 @@
                     </button>
 
                     <p class="form-note">
-                        This button opens your email application with
-                        your message prepared. You will still need to send it.
+                        This prepares an email in the visitor's email
+                        application. It does not send messages directly
+                        from the website.
                     </p>
                 </form>
-
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <p>
             © <span id="currentYear"></span> Janelle Rubas Esmino.
@@ -1874,9 +1837,9 @@
     </button>
 
     <script>
-        // -----------------------------------------
+        // =========================================
         // 1. PROFILE PHOTO FALLBACK
-        // -----------------------------------------
+        // =========================================
 
         const profilePhoto = document.getElementById("profilePhoto");
         const photoPlaceholder = document.getElementById("photoPlaceholder");
@@ -1892,9 +1855,9 @@
             showPhotoPlaceholder();
         }
 
-        // -----------------------------------------
+        // =========================================
         // 2. MOBILE NAVIGATION
-        // -----------------------------------------
+        // =========================================
 
         const menuToggle = document.getElementById("menuToggle");
         const navLinks = document.getElementById("navLinks");
@@ -1917,24 +1880,26 @@
             });
         });
 
-        // -----------------------------------------
+        // =========================================
         // 3. SCROLL REVEAL ANIMATIONS
-        // -----------------------------------------
+        // Elements appear as you scroll down.
+        // =========================================
 
-        const revealElements = document.querySelectorAll(".reveal");
+        const revealElements = document.querySelectorAll(
+            ".reveal, .reveal-left, .reveal-right"
+        );
 
         if ("IntersectionObserver" in window) {
-            const revealObserver = new IntersectionObserver(
-                entries => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("show");
-                            revealObserver.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.12 }
-            );
+            const revealObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12
+            });
 
             revealElements.forEach(element => {
                 revealObserver.observe(element);
@@ -1945,16 +1910,65 @@
             });
         }
 
-        // -----------------------------------------
-        // 4. AUTOMATIC FOOTER YEAR
-        // -----------------------------------------
+        // =========================================
+        // 4. FALLING PETALS
+        // Creates small petals that drift down.
+        // =========================================
+
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (!reduceMotion) {
+            const petalSymbols = ["✿", "❀", "✽", "·"];
+            let petalCount = 0;
+            const maxPetals = 12;
+
+            function createPetal() {
+                if (petalCount >= maxPetals) return;
+
+                const petal = document.createElement("span");
+                petal.className = "petal";
+                petal.textContent =
+                    petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+
+                const size = 10 + Math.random() * 12;
+                const duration = 9 + Math.random() * 9;
+
+                petal.style.left = Math.random() * 100 + "vw";
+                petal.style.fontSize = size + "px";
+                petal.style.animationDuration = duration + "s";
+
+                document.body.appendChild(petal);
+                petalCount++;
+
+                petal.addEventListener("animationend", () => {
+                    petal.remove();
+                    petalCount--;
+                }, { once: true });
+            }
+
+            // Create a few petals initially.
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createPetal, i * 900);
+            }
+
+            // Add petals periodically while the page is visible.
+            setInterval(() => {
+                if (!document.hidden) createPetal();
+            }, 1800);
+        }
+
+        // =========================================
+        // 5. AUTOMATIC FOOTER YEAR
+        // =========================================
 
         document.getElementById("currentYear").textContent =
             new Date().getFullYear();
 
-        // -----------------------------------------
-        // 5. BACK-TO-TOP BUTTON
-        // -----------------------------------------
+        // =========================================
+        // 6. BACK-TO-TOP BUTTON
+        // =========================================
 
         const backToTop = document.getElementById("backToTop");
 
@@ -1969,17 +1983,10 @@
             });
         });
 
-        // -----------------------------------------
-        // 6. CONTACT FORM
-        // -----------------------------------------
-
-        /*
-         * IMPORTANT:
-         * Replace YOUR_EMAIL@gmail.com below with your real email.
-         * The form prepares an email using the visitor's default
-         * email application. A backend or form service is needed
-         * if you want messages submitted directly on the website.
-         */
+        // =========================================
+        // 7. CONTACT FORM
+        // Replace the email below with your real email.
+        // =========================================
 
         const portfolioEmail = "YOUR_EMAIL@gmail.com";
 
@@ -1988,7 +1995,7 @@
 
             if (portfolioEmail === "YOUR_EMAIL@gmail.com") {
                 alert(
-                    "Please replace YOUR_EMAIL@gmail.com in the code " +
+                    "Please replace YOUR_EMAIL@gmail.com in the JavaScript " +
                     "with your actual email address first."
                 );
                 return;
